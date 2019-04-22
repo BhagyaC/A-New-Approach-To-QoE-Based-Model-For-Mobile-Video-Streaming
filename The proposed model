@@ -1,0 +1,375 @@
+A. Model Architecture
+A good QoE model must consider subjective as well
+as objective parameters. This model considers both sub-
+jective parameters and objective QoE matrices. For our
+model, we assume a set of predefined objective QoE ma-
+trices (M) their corresponding subjective user expectation
+(N). The list of objective QoE matrices for the model
+is described in section Result analysis (Section IV). It
+contains two parts, In the first part, the dependency be-
+tween the objective and subjective parameters will be eval-
+uated. The valuation is done by multinomial regression.
+multinomial logistic regression is a classification method
+that generalizes logistic regression to multiclass problems,
+i.e. with more than two possible discrete outcomes. That
+is, it is a model that is used to predict the probabili-
+ties of the different possible outcomes of a categorically
+distributed dependent variable, given a set of indepen-
+dent variables (which may be real-valued, binary-valued,
+categorical-valued, etc. This regression just proves that
+the objective QoE matrices and the subjective parameters
+are dependent on each other. The dependent variables
+from the multinomial regression are further used in the
+modeling part. In modeling other than linear regression
+generalized linear regression is used and it also supports
+the scalability of parameters. The parameters are feed
+into the generalized linear model and it predicts the user
+expectation. As a new parameter introduced in the model
+it becomes more and more complex so the validation of
+the model is very important so that to check whether our
+model is a better fit to data. The over all architecture of
+the model described in Fig.3
+B. Relation between Objective matrices and Subjective Pa-
+rameters
+The subjective expectation for the OQoE matrices was
+precomputed from a systematic user study. In this work,
+we directly use the computed user expectation values. For
+brevity, we omit user expectation computation details.
+This model has well defined objective parameters and
+some subjective parameters say M, N respectively. At
+given OQoE matric and user expectation for our model
+we end up with following two cases,
+case 1: If N=M, The mapping of objective and subjec-
+tive parameters will be done using multinomial logistic
+regression. The multinomial logistic regression is usedFig. 5.
+Fig. 3.
+multinomial regression
+The over all architecture of the proposed model
+Fig. 6.
+Fraction of support for each user expectation
+α = (1 ∗ A + 2 ∗ B + 3 ∗ C + 4 ∗ D + 5 ∗ E)/100
+Fig. 4.
+subjective analysis
+to define that the objective parameters that we selected
+are dependent on the subjective parameters. The null
+hypothesis H0= The objective parameters are dependent
+on the subjective parameter, if its true then the parameters
+will be fed into the next phase
+case 2: If N <M, Then there will be an x such that
+M−x=N, and these M−x, N will follow the same path in
+case 1. And the x objective parameters will directly feed
+into the second phase, they donot have to go through the
+dependency phase.
+C. Multinomial logistic regression
+The first phase of the model is a multinomial logistic
+regression, for the sake of explanation considering N=4
+and M=5 (Hence x=1). The objective parameter that
+cannot be to with a subjective parameter considered as
+the x.
+The table (Fig.4) contains the user expectation that is
+the result of subjective analysis for a single parameter (Eg,
+Startup delay reward), the user expectation is rated on a
+scale of 1 to 5 for every subjective parameter. For the N
+(here N=5) there will be corresponding user expectation
+rated on a scale of 1 to 5. Similarly for N subjective
+parameter there will be an another table (Fig.6) which
+shows the fraction support for each rating value.
+The fraction support for each rating value from 1 to 5
+have a specific percentage as depicted in table. From this
+values the over all user expectation alpha calculated.
+The general form of user expectation calculation is given
+by
+α =
+n
+X
+i ∗ f raction(i)
+i=1
+So here it will be like,
+f raction(i)
+The ceiling value of the α (dαe )calculated is selected
+as user expectation α'. This value hence called as the
+reference event for multinomial logistic regression. While
+calculating the dependency between the objective metrices
+and subjective parameters the multinomial regression is
+taken place with respect to the reference event. After
+multinomial logistic regression the intercepts and the co-
+efficient for the fraction support for the every evaluation
+rating except the reference value is obtained as in table
+(Fig.5). From these values itself we can get an idea that
+the parameters with positive coefficients have a positive
+impact on the model.
+the probabilities for each parameters can be found from
+the multinomial regression
+suppose α'= 5 then
+h p(1) i
+ln
+= c1 + a1 ∗ A = Y 1
+p(5)
+h p(2) i
+= c2 + a2 ∗ B = Y 2 and similarly Y 3 and Y 4
+ln
+p(5)
+are calculated. Taking exponential on both sides.
+p(1)
+= e Y 1
+p(5)
+p(2)
+= e Y 2 similarly e Y 3 , e Y 4 .
+p(5)
+According to probability theory P (1) + P (2) + P (3) +
+P (4) + P (5) = 1, Hence
+P (1) + P (2) + P (3) + P (4)
+= e Y 1 + e Y 2 + e Y 3 + e Y 4
+p(5)
+1 − p(5)
+=
+p(5)
+1
+= 1 + e Y 1 + e Y 2 + e Y 3 + e Y 4
+p(5)
+1
+p(5) =
+,for other probabili-
+1 + e Y 1 + e Y 2 + e Y 3 + e Y 4
+ties
+e Y 1
+p(1) =
+1 + e Y 1 + e Y 2 + e Y 3 + e Y 4
+e Y 2
+p(2) =
+Y
+1
+Y
+1 + e + e 2 + e Y 3 + e Y 4e Y 3
+1 + e Y 1 + e Y 2 + e Y 3 + e Y 4
+e Y 4
+p(4) =
+1 + e Y 1 + e Y 2 + e Y 3 + e Y 4
+so generally we can say that
+
+1
+
+
+, if α 0 = 1
+Y 1 + e Y 2 + e Y 3 + e Y 4
+1
++
+e
+p(1) =
+e Y 1
+
+
+, otherwise
+1 + e Y 1 + e Y 2 + e Y 3 + e Y 4
+p(3) =
+E. Modeling
+The model is an explicit model rather than a black box.
+The parameters selected from phase 1 that is multinomial
+regression is taken as the input to the second phase that
+is modeling. In modeling Generalised linear regression is
+used rather than simple regression (linear and non-linear).
+Because there are several reasons why a linear regression
+limits an amount of extracted information or even fails.
+Firstly, a linear regression needs a Gaussian distribution of
+After this the result will pass to a chi-square analysis, residuals i.e. differences between a model and observations.
+as a part of multinomial regression. The null hypothesis Note that a Gaussian distribution can have any value. On
+H0 is the objective matrices are dependent to subjective the other hand subjectsâĂŹ answers are strongly limited
+parameters. And the significant level for chi-square anal- to just a few categories, and therefore so are residuals.
+ysis is selected as 0.05 (5%). As a result the chi square Secondly, if the tested service is of excellent or bad quality
+value, degree of freedom and the p value of the analysis is then ex- treme categories become the most frequently
+obtained. When the p-value is greater than the significant chosen. In consequence, an asymmetric error distribution
+level acoording to regression analysis the null hypothesis is obtained. Therefore, better statistical tools should be
+is true hence it can be accepted. If the null hypothesis used for a model design in a case of subjective QoE tests
+is true hence the model proved that the parameters and expressed over a fewgrade scale. The next feature of a
+matrices are dependent to each other. Taking parameters linear regression is often disregarded. A linear regression
+as independent was one of the major fault in generel QoE provides an estimation of a mean of a dependent vari-
+able only so any other information, like categoriesâĂŹ
+modeling that is covered in this model.
+distribution, is lost [ii]. In this model it also follows the
+stastical tool GLZ as the first part. Like GLZ model it uses
+D. Error correction in Multinomial regression
+a category order rather than considering the categorical
+In the above section the user expectation is selected values simply as nominal data and executing mathematical
+after a ceiling function. Hence there will be error in operations. The biggest problem with MOS is that an
+multinomial regression while calculation the probability average of user ratings is computed. Mathematical oper-
+of each evaluation variables (here on a scale of 1 to 5). So ations such as computing mean and standard deviation
+Error optimization is important
+cannot be applied on subjective ratings as these ratings
+User Expectation (α) = dαe=Rounded User Expecta- are categorical in nature (e.g., "excellent" and "fair"). The
+human test subjects ranks the alternatives on the categor-
+tion or α'
+Hence the equation that explained above will be modified ical scale where the distance between these alter- natives
+cannot be known [16, 19, 4, 31]. Hence, mathematical
+like
+h expectation i
+operations cannot be applied.As it was mentioned earlier,
+=
+(c−1)+(a−2)∗f
+ractionof
+support
+=
+ln
+p(α 0 )
+a GLZ (as opposed to a linear regression) provides a
+Y .
+probability of each category as a function of independent
+Where,
+variables. More precisely, a GLZ supports estimation of
+c−intercept obtained for α 0
+ordered multinomial distribution which is a test answers
+a − coefficient for fraction of support obtained for α 0
+distribution. However, instead of a category probability
+ Intercept obtained f orα 0
+
+estimation i.e. P (Y = C i |x 1 , . . . , x l ), a category
+0
+cumulative distribution function (category CDF).i.e. P (Y
+−
+Intercept
+obtained
+f
+or(α
+−
+1)
+
+
+0
+
+
+<=C i |x 1 , . . . , x l ) is estimated where <=stands
+(α
+−
+1)
+
+1 = 
+100
+
+
+for categories order. The order of categories is known,
+
+
+therefore their descriptions can be mapped to consecutive
+numbers. For briefity the condition(|x1,x2...xl) is skipped
+and
+ equation reduced to
+ coef f icientof f ractionof supportf orα 0
+u=p(Y<=i)
+0
+− coef f icientof f ractionof supportf or(α − 1) 
+
+0
+
+
+while inserting parameters in the equation there is no
+(α − 1) 
+2 = 
+100
+
+
+specific
+order, The dependency of each parameter will
+
+
+be obtained from the final result in terms of beta. The
+CDF is a highly non linear function, so before modeling
+it have to be converted into a linear one. Generally a
+Hence the error while upper ceiling the user expectation function is used to convert the CDF to a linear form.
+value is optimized
+The fuction is called linkf unction, the link funtion f (u)intruduced so that the non linear tranformation of u=
+p(Y<=i) to a linear transformation. In general the link
+function f (u) is a log function here this model uses logit
+function becuase logistic models are popular in statistical
+regression and machine learning. One of their popular
+but not necessary characteristics is to map a variable
+from (âĹŠâĹđ, +âĹđ) to (0, 1) via a symmetric sigmoid
+curve. However, features are often bounded or at least
+semibounded in real applications. Logistic models belong
+to the generalized linear model (GLM) [26]. With a link
+function,
+f (u)=log(u/1-u)
+The final estimation of GLZ is given by (consider there
+are 5 parameters)
+f (P (Y <= i))= β0+β1x1+β2x2+β3x3+β4x4+β5x5
+The βs in a GLM are coefficients or weights assigned to
+the predictor variables, i.e. the X s on the right had side
+of the prediction equation.The first β, β0 , is a constant.
+That it, it is the same for every observation regardless of
+any values on any of the X s. In geometrical terms, β0 is
+an intercept. In other words β0 is the predicted value of Y
+when all of the X s equal 0.The other βs are all associated
+with a variable. Because the variable is multiplied by the
+β, the β is a weight that determines how much the X
+contributes to prediction. If β = 0, then the associated
+variable does not predict individual difference in function
+differences in the function.In more specific terms, a β gives
+the predicted change in Y for a one unit change in the X.
+Assume GLM equation of the form f (u 0 ) = . . . + β i X i
+and concentrate on the ith X.where the ellipses (...) denote
+everything else in the equation that is kept constant. Now
+change the value of Xi from Xi to (Xi+1). The predicted
+value is now
+f (u) = . . . + βi (X i + 1)
+Subtracting Equation for f (uu) from that for f (u) from
+X gives
+f (u 0 ) − f (u) = βi(Xi + 1) − βiXi = βi.
+so its proved that a β gives the predicted change in Y
+for a one unit change in the X.Never compare βs across
+variables to determine the importance of the variables in
+prediction.That means the β for a x1 was -5.7 while the
+one for x2 was .08. This does NOT imply that x1 predicts
+f (u) much better than x2.Standardized β s may be used to
+compare the relative predictive effects of the independent
+variables.The standardized β means the βs in this equation
+are called standardized coefficients. They are the GLM
+coefficients from a model in which all variables have been
+standardized to have a mean of 0 and a standard deviation
+of 1.0.
+when i=n gets trivial
+P (Y <= n) = 1
+as a user then has to choose a category.Therefore, in the
+presented case n + 5 parameters are estimated where n is
+a number of categories. Provided Eq. (2) and the logit link
+function, the category CDF is given by
+P (Y <= i)
+exp(β0 + β1x1 + β2x2 + β3x3 + β4x4 + β5x5)
+1 + exp(β0 + β1x1 + β2x2 + β3x3 + β4x4 + β5x5
+Hence the the predicted value for user experience is ob-
+tained. The value will be in a range of (0,1) but the user
+expectation are evaluated in a scale of (1,5) the result will
+mapped to the new range so for better comparison.If the
+predicted value is less than the expected value then it will
+provide a feedback to the system so that a better adaptive
+streaming method can be introduced. This model is scal-
+able, That means as the technology increases day by day
+our model have to consider more and more variables for
+better prediction of user expectation. While introducing
+new variables and combining them in different polynomial
+generated numerous model. So it is necessary to choose
+the best model by formal approach.
+=
+F. Computing Influence of OQoE
+This part really consist of the estimation of model pa-
+rameters.In order to validate the obtained estimates a test
+of statistical significance has to be run. It may happen that
+some of the model parameters are not statistically different
+from 0 (they do not pass a significance level). In this case
+a parameter should be removed from the model and a new
+estimation process has to be run. Moreover, if more than
+one parameter is not significant we should remove them
+one by one. It is likely that more than one model with
+all significant parameters will be obtained. However, any
+model having more parameters is supposed to fit to the
+data more precisely than those having fewer parameters.
+To solve a trade-off in- formation criteria, taking into
+account both model accuracy and size, was proposed [9].
+In this model the Bayesian Information Criterion (BIC),
+also called the Schwarz Information Criterion (SIC) that
+is given by
+BIC = −2ln(L) + kln(N )
+where L is the maximized value of the likelihood func-
+tion (one of output parameters of a MLE procedure), k is
+a number of model parameters and N is the sample size
+(in case of subjective tests the sample size is the number
+of all answers given by all subjects). The lower the BIC
+value, the better the model fits to the data as relates to
+its size.
