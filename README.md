@@ -1,5 +1,5 @@
 Delivery of video through Internet was introduced in
-1990âĂŹs itself. It evolved from method to method be-
+1990 itself. It evolved from method to method be-
 cause of the increase in the Internet bandwidth and the
 growth of world wide web [2]. The timely delivery of data
 was the great issue ever. The evolution starts with the
