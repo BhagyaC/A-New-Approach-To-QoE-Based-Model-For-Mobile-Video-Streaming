@@ -1,0 +1,138 @@
+A. Implementation Details
+While implimenting the model also there are two phases,
+first phase for mutlinominal regression part where the
+dependency between objective and subjective parameters
+are found second phase the dependent parameters are
+considered for modeling and the user expectation is pre-
+dicted.For implimentation for the time being considering
+the the M=5, thet is the there are 5 objective matrices
+considering in this model, Namely (i)Startup delay re-
+ward (ii)Interruption Ratio (iii)Average Bitrate Efficiency
+(iv)Video Continuity Index (v)Bitrate Switching reward.
+And N=4,That is there are 4 subjective parameters areFig. 7.
+reward
+user expectation and fraction of support for startup delay
+like
+h expectation i
+ln
+= (c−1)+(a−2)∗f ractionof support =
+p(α 0 )
+Y .
+Where,
+c−intercept obtained for α 0
+a − coefficient
+for fraction of support obtained for
+α 0
+ Intercept
+
+0
+obtained f orα
+− Intercept obtained f or(α 0 − 1) 
+
+
+(α 0 − 1) 
+
+1 = 
+100
+
+
+
+
+ coef f icientof f ractionof supportf orα 0
+
+0
+− coef f icientof f ractionof supportf or(α − 1) 
+
+
+(α 0 − 1) 
+
+
+2 = 
+100
+
+
+
+Fig. 8. intercept and coefficient of fraction of support in mutlinom-
+inal regression
+considering in this model.Hence the condition N<=M
+satisfied. The all subjective parameters are related to some
+objective parameters , But theb dependency between the
+objective parameter and the subjective parameters must
+be considered in the further part of the QoE modeling
+becuase the parameters are considered as independent is
+the one of the limitation faces by the QoE modeling.
+The subjective parameters are collected from a set of
+users. The subjective analysis is done like rating the video
+for the selected 4 parameter on a scale of 1 to 5. Hence
+for the 4 parameter there will be a table like for each
+expectation how many fraction of support is there. The
+table explains the same for the parameter Startup delay
+Reward.
+Using these data the depndency between the objective
+and subjective parameters have to be found. In multino-
+mial regression the dependency is found out with respect
+to a reference variable called reference event. Here the
+reference event user expectation (α).
+α = (7.9*1+7.5*2+22.2*3+45.8*4+16.5*6)/100
+= 3.5
+Taking the reference event as the upper ceiling of the
+value obtained. So the α 0 =d3.5e = 4.
+Hence the table will feed to the multinomial regression
+and the intercept and coefficient of the fraction of support
+will be obtained as in table (Fig.8)
+Using these intercepts and coefficients the model can
+predict the probability of each expectation with respect
+to the reference level. But here there is a need of error
+correction in multinomial regression. Becuase during the
+selection of reference event the ceiling of alpha obtained is
+selected. So there is a chance of error and that have to be
+optimized.
+User Expectation (α) = dαe=Rounded User Expecta-
+tion or α'
+Hence the equation that explained above will be modified
+The predicted values for each expectation after error
+optimization is described in the table. After the expec-
+tation value prediction the the test data will pass in to
+the chi-square analysis.The null hypothesis for the chi-
+square analysis is defined as H0: The objective parameters
+are dependent on subjective parameters, The significant
+level for Model is selected as 0.05 or 5%. This model has
+a likelihood ratio ÏĞ 2 of 3.6389 with a p-value greater
+than .05 and 4 degrees of freedom, which indicates that
+the model as a whole fits significantly better with the
+user expectation as a predictor. (The ÏĞ 2 statistic is the
+difference in 2 log-likelihoods between the final model and
+a reduced model. The reduced model is formed by omitting
+an effect from the final model [11].) In another words the
+null hypothesis accepted.
+After finalizing that the objective parameters and the
+subjective parameters are dependent to each other the
+4 dependent parameters and the 1 objective parameter
+passed to the next phase called modeling phase.The mod-
+eling part is nothing but a GLZ with a logit function as
+a link function. The GLZ model considers the cumulative
+distributive function other than a probability distributive
+function . ategory CDF is denoted by u = P (Y âĽďi)
+with a condition |x1, ..., xl.So here it is like P (Y <=
+Ci|SDR, IR, ABE, V CI, BSR) for convinience it is repre-
+sented as P (Y <= Ci|x1, x2, x3, x4, x5) and for simplicity
+the equation reduced to
+u = P (Y <= i) Its highly non linear and transform it
+into linear one use the logit fuction
+f (u) = log(u/1 − u).The result of GLZ will be
+f (P (Y <= i))= β0+β1x1+β2x2+β3x3+β4x4+β5x5
+and considering the trivial condition the predicted value
+will be
+exp(β0 + β1x1 + β2x2 + β3x3 + β4x4 + β5x5)
+P (Y <= i) =
+1 + exp(β0 + β1x1 + β2x2 + β3x3 + β4x4 + β5x5
+The table contains the coeffients obtained for GLZ
+model and these data canbe used to analyse which pa-
+rameter is influencing the model the most.The final part
+of the model is nothing but calculating the BIC so that to
+understand how much this model fits to the data.BIC = âĹŠ2 ln(L) + k ln(N ) ,the less BIC value
+means it is a best fit to the data. The real need of these
+evaluation comes only when a new parameter introduced
+to the model and the prediction equation become more
+bigger. THere this value gave a better understanding
+of influence of OQoE
