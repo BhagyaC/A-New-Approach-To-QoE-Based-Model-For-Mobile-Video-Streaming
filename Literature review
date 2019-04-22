@@ -1,0 +1,448 @@
+The QoE modeling can be done based on two type
+of parameters first subjective parameters and objective
+parameters or in the other words, we can say that there
+is two type of QoE measurement methods on the basis
+which measurement technique they are taking the model
+will be either subjective or objective. There are some
+models which also consider both subjective and objective
+parameters and find the relation between them and uses
+for modeling and prediction Generally, QoE modeling
+has two processes in developing a model (i)identify the
+parameters that will feed as input (ii)mapping them to
+a quality index, the parameters depend on the subjective
+quality assessment. The mapping process is to find the
+best fit for the prediction model.
+Janowski and Papir proposed a model called generalized
+linear model (GLZ) to predict QoE. Its almost like a
+general form of linear regression but it can also deal with
+non-normality of data. It deals with both objective and
+subjective data. The model explains that while subjective
+evaluation the result is an ordinal data hence we have to
+concentrate more on user perspective than on pure num-
+bers. the GLZ model yields a probability of each possible
+category as a function of certain independent variables.
+Knowing the probability of each category, much more
+can be concluded from a test run than just computing
+a Mean Opinion Score (MOS) value. Different types of
+variables should be analyzed differently. As in subjective
+tests, ordinal categories are used (with unknown distances,
+though ordered); their analysis aims at a probability that
+a subject will answer at least Ci where Ci is a category, for
+example, Ci{Bad, P oor, ÂůÂůÂůExcellent}. Such anal-
+ysis is supported by the GLZ. The cumulative distribution
+function used in this model can help to understand the
+diversity of user ratings.GLZ relates the particular QoE
+level to independent network and application explanatory
+variables in a statically credible way. The GLZ model
+include (i)Maximum likelihood estimation of model pa-
+rameters (ii) Selection of the most effective model with
+Bayesian criteria (iii)Model validation through chi-square
+test (iv)Confidence interval estimation
+According to GLZ model while predicting a MOS value
+of 3 can be distributed like {Excellent = 10% , Good =
+25%, Fair = 30%, Poor = 25%,Bad = 10%} and here only
+1/3 says that the value is 3.So from this itself its clear that
+the MOS value is not much capable of calculating the real
+user expectations. There is two type of variables called
+ordinal and nominal. An ordinal variable is a variable
+for which its order is known but a distance between
+any two values is not specific or deter- mined. Some
+authors claim that, since distances between subjective
+categories are not equal, subjective tests cannot reveal
+valuable conclusions [7].nominal variable, for example, sex
+or faith. Such a variable is different from an ordinal one
+since no order can be put on it.GLZ makes it possible to
+estimate the categories distribution, which is much more
+detailed information than just a MOS. In GLZ instead of a
+category probability estimation i.e.P (Y  Ci|x1, ..., xl),a
+category cumulative distribution function (category CDF)
+i.e. P (Y  Ci|x1, ..., xl) is estimated where stands
+for categories order. The order of categories is known,
+therefore their descriptions can be mapped to consecutive
+numbers. A category CDF is denoted byu = P (Y ≤ i)
+with a condition |x1, ..., xl skipped for simplicity in repre-
+sentation. CDF is a highly non linear function but a link
+function f (u) is introduced to transform the non linear
+function to a linear one.Generally it uses a log function
+as a link function f (u) = log(u). A GLZ procedure as-
+sumes a specific error distribution therefore a natural way
+of derivation of parameters is the Maximum Likelihood
+Estimation (MLE).And the product of GLZ Model is
+for two independent variables x1 and x2 may be given
+byf (P (Y ≤ i)) = αi + β1x1 + β2x2 + β3x1x2. for i = n
+gets trivial since P (Y ≤ n) = 1,case n + 2parameters are
+estimated where n is a number of categories category CDF
+is given by
+P (Y ≤ i) =
+exp(αi + β1x1 + β2x2 + β3x1x2)
+1 + exp(αi + β1x1 + β2x2 + β3x1x2)
+Adoption of several different independent variables and
+combining them in different polynomials generates nu-
+merous models. Therefore, it is necessary to choose the
+best model by some formal approach.Here it uses Bayesian
+Information Criterion (BIC), also called the Schwarz In-
+formation Criterion (SIC) that is given by
+BIC =âĹŠ2ln(L) + kln(N )
+where L is the maximized value of the likelihood func-
+tion (one of the output parameters of an MLE procedure),
+k is a number of model parameters and N is the sample size
+(in case of subjective tests the sample size is the number of
+all answers given by all subjects). The lower the BIC value,
+the better the model fits the data as relates to its size.
+The GLZ model delivers a probability distribution of QoE
+categories which provides to engineering and management
+staff much more detailed information than a simple numer-
+ical index like Mean Opinion Score (MOS). Of course, the
+MOS index can be derived from a QoE distribution if only
+a mapping of QoE categories to numbers (not necessarily
+equidistant) is defined.
+Acceptability based QoE model proposed by Wei Song
+and Dian W. Tjondronegoro which uses both subjective
+user experience and objective system performance. This
+model is able to predict user acceptability and prediction
+in mobile using scenarios. It is a no-reference model. It
+uses binary logistic regression analysis to determine the
+significant factors influencing the user acceptance. Accord-
+ing to this model, the current QoE prediction models have
+two main limitations: (1) insufficient consideration of the
+factors influencing QoE, and (2) limited studies on QoE
+models for acceptability prediction. The main aim of the
+model is to develop QoE models based on user-centered
+acceptability for pleasant viewing. The parameters that
+outputted from the binary logistic regression the relation
+between lowest acceptable and lowest pleasing matrices
+are found. Using these a set of Acceptability based QoE
+models (A-QoE) are proposed to predict quality accept-
+ability. This model used a subjective test using a test
+tool, test videos, and participants. The different type of
+videos is rated like whether they are acceptable or pleasant
+on different parameters. Hence these subjective scores are
+mapped into 0 or 1 like a subjective question on video
+quality the lowest quality as âĂIJunacceptableâĂİ and
+represented with âĂIJ0âĂİ, and the others with equal or
+greater quality were regarded as âĂIJacceptableâĂİ and
+represented with âĂIJ1âĂİ.The same format is followed
+for the pleasing quality evaluation data. Based on the
+binary data, the degree of user acceptance for each test
+clip was computed as the ratio of the accumulation of
+âĂIJ1âĂİs in the total number of the ratings. There are
+two acceptability indexes used: general acceptability Gacc
+and pleasant acceptability P acc. The GAcc score (QGAcc)
+means the possibility of a video quality being generally
+accepted by viewers and the PAcc score (QP Acc) means
+the possibility of a video quality making viewers pleasant
+or comfortable.
+QGAcc =
+QP Acc =
+thenumberof basicacceptableratings
+thetotalnumberof ratings
+thenumberof acceptableratingsf orpleasantwatch
+thetotalnumberof ratingsf orpleasantwatch
+Then the model first evaluates the relationship between
+the two parameters QGAcc and QPAcc.And they are
+highly related to each other. So in finding model predictors
+either of the two parameters are used. QoE modeling is
+the process of establishing the relationship between the
+QoE indicator i.e., QGAcc and QPAcc, and a series of
+independent variables (i.e., predictors). Certain factors
+that significantly affect the subjective quality acceptability
+were considered as the predictors of our QoE models.
+Binary logistic regression used to find such factors. And
+the predictors are selected.Some of them include Con-
+tent identification (CI), Quantization Parameter (QP)
+etc.applied two approaches to attain the characteristics.
+The first approach follows the method suggested in ITU-
+T Recommendation P.910 [34] to calculate spatial infor-
+mation (i.e., complexity) (SI) and temporal information
+(TI) of a video content. The SI is based on the Sobel
+filter over the luminance space of a video frame and the
+TI is based on the temporal difference between successive
+frames. On the basis of the SI and TI values for each frame,
+we used the following variables:variables: ASI and ATI (the
+averaged SI and TI), and NSI,NTI (the normalized SI and
+TI by the maximum values), and W (the ratio of theNSI to
+the NTI, which indicates the relative dominance of spatial
+complexity over the temporal complexity). The second
+approach works in video compression domain for MPEG4
+or H.264/AVC formatted videos to extract motion char-
+acteristics: motion activity intensity (MAI) defined as the
+mean magnitude of motion vector (MV); motion activity
+proportion (MAP) defined as the proportion of the number
+of non-zero MVs in the total number of MVs; and motionactivity direction (MAD) defined as the deviation of MV
+directions from the dominant movement direction. A high
+MAI value often indicates fast movement; a big MAP value
+often indicates large movement areas; a small MAD relates
+to consistent movement. And this followed by the part
+curve fitting. Where the relationship between indicators
+and predictors are established. acceptability data, the
+curves were not symmetrical, that is, the upper curvature
+and the lower curvature are different. Hence five-parameter
+logistic (5PL) modelâĂŤwas chosen for the asymmetric
+curves (Fig.2). According to statistical regression theory,
+Fig. 2.
+The general formula of 5PL
+a common way to determine a best-fitting model is to find
+the parameters that minimize the sum of squared errors,
+also called the residual sum of squares (RSS). The quality
+of the curve fit is often accessed by the R square. The
+equals the ratio of the regression sum of squares to the
+total sum of squares, which explains the proportion of
+variance accounted for in the dependent variable by the
+model. The R2 has a value between 0 and 1. A value of
+the R2 close to 1 means a good curve fit. Another way
+of evaluating the model performance is to examine the
+correlation between the predicted responses and the ob-
+served responses. The Pearson linear correlation coefficient
+(PCr) is a measure of the strength of linear dependence
+between two variables, is used to indicate model accuracy.
+The Spearman rank order correlation coefficient (SROC
+rho) indicates prediction monotonicity. The coefficient r
+or rho is between 0 and 1, and the value equal ± 1 to
+indicates a perfect relationship. After the curve fitting the
+A-QoE Models are proposed. The quality is predicted for
+each parameter and it considers that whether we are aware
+of the device display features. The A-QoE models take
+into consideration significant influencing factors of user
+acceptability, which were discovered from a comprehensive
+user study and easy to use as we used a unified expression,
+as opposed to different models for each type of video
+contents by integrating the most important feature of a
+mobile device and the video content features. The A-
+QoE models are novel due to its capability of predict-
+ing pleasant-quality for regular viewing, rather than just
+lowest acceptable to watch and can be utilized in a wide
+area of applications, based on the available and derivable
+information.
+Margaret H. Pinson and Stephen Wolf proposed A
+New Standardized Method for Objectively Measuring
+Video Quality. It’s an objective analysis model. The Na-
+tional Telecommunications and Information Administra-
+tion (NTIA) research was focused on technology indepen-
+dent of parameters that model how people perceive video
+quality. These parameters have been combined using a
+linear model to produce an estimate of video quality that
+closely approximates subjective test results. The general
+purpose of video quality model, It uses the reduced-
+reference technology and provides estimates of the overall
+impressions of video quality (i.e., mean opinion scores, as
+produced by panels of viewers). Reduced-reference mea-
+surement systems utilize low-bandwidth features that are
+extracted from the source and destination video streams.
+Thus, reduced-reference systems can be used to perform
+real-time in-service quality measurements (provided an an-
+cillary data channel is available to transmit the extracted
+features). Secondly, it utilizes reduced-reference param-
+eters that are extracted from optimally-sized spatial-
+temporal (S-T) regions of the video sequence. And also
+it requires an ancillary data channel bandwidth of uncom-
+pressed video. So as a conclusion the General Model and
+its associated calibration techniques a complete automated
+objective video quality measurement system. This model
+considers Spacial alignment. Which determines horizontal
+and vertical shifts of the processed video.And the accuracy
+is .5 pixel for horizontal sifts and the nearest line of vertical
+shifts. After calculating spacial alignment spacial shifts are
+removed from the video. For interlaced video, they may
+include reframing. The spacial alignment must be deter-
+mined before the processed valid region(PVR)-defined as
+processed video image which contains valid information.
+Each quantity is obtained by comparing original video
+and processed video. There is an interrelationship between
+the parameters so there is a chick or egg problem like
+which parameter has to be validated first. In order to
+avoid these errors, the solution is an iterative search to
+find the closest matching original frame for each processed
+frame. The special alignment algorithm calculates the
+spacial alignment for each of a series of processed frames
+at some specified frequency. Using the baseline estimate
+as a starting point the algorithm performs alternative
+fine searches and estimation of luminous gain and level
+offset.The gain and level offset calculate the mean and
+standard deviation of original and processed frame com-
+pared using current spatial and temporal alignment. The
+second part of the model is processed valid region (PVR),
+due to compression there can be some not transmitted
+and they will appear as a black line in the displayed
+pixel.These effects can occur on the left-right side or the
+bottom. To prevent non-picture areas influencing VQM
+measurement this area must be excluded. PVR calculated
+for each scene separately and the invalid pictures are
+removed. The valid region algorithm can also be applied
+to the original video sequence. The resulting original valid
+region (OVR) increases the accuracy of the processed
+valid region calculation, by providing a maximal boundon the PVR.The next important part of the modeling
+is gain and level offset, it says that The original and
+processed images must spacially and temporally regis-
+ter.The valid regions of the original and processed frames
+are divided into small, square sub-regions, or blocks. The
+mean of each sample is computed and standard deviation
+(SD) of each different image is also selected.The frame
+that produces the smallest Sdn (most cancellation with
+original video) is chosen as the best match. The first
+order linear fit is used to compute the relative gain and
+offset between the subsample original processed frame.
+The algorithm applied to multiple matching distributed
+at regular interval. A median filter is then applied to
+the six-time histories of the level offsets and gains to
+produce average estimates for the scene.If it is a constant
+it will filter for better accuracy. And the modeling includes
+Temporal alignment which is objective methods for mea-
+suring end-to-end video communications delay. Delay can
+depend upon dynamic attributes of the original scene (e.g.,
+spatial detail, motion) and video system (e.g., bit-rate).
+Video delay measurements should ideally be made in-
+service to be truly representative and accurate.Some video
+transmission systems may provide time synchronization
+information. Here presents a frame-based model. It works
+by correlating lower resolution images, sub-sampled in
+space and extracted from original and processed video.
+These individual estimates are combined to estimate the
+average delay of the video sequence. These videos are
+sampled and normalized to unit variance to reduce the
+influence of distortion. It also finds the relative delay
+between original and processed. They are combined into a
+histogram and then smoothed. Temporal alignment algo-
+rithm process every video frame. The pattern in histogram
+gives insight to the system under test and small errors
+are relatively neglected.After this parameter calculation
+for modeling executed. Quality parameter computed that
+are indicative of perceptual changes in video quality.After
+perceptual filtering features are extracted from spacial-
+temporal sub-region using mathematical functions like
+standard deviation. Perceptibility threshold is applied to
+extract features. Filters are operated on frames within the
+calibrated video sequence, These pixels in original and
+processed images outside of the PVR have been discarded,
+the processed sequence has been spatially registered.The
+perceptual impairments at each S-T region are calculated
+using comparison function. There are some clipping func-
+tion clipped to prevent them from measuring impairments
+that are imperceptible
+Fclipped=max(F,threshold)
+Hence the parameters like (i)Si_loss (loss of spatial
+information), hv_loss (shift of edges from horizontal and
+vertical orientation to diagonal orientation) etc. The Gen-
+eral model proposed like
+VQM = -0.2096*Si_loss+0.5969*hv_loss.....
+Linear combination of seven parameters while consid-
+ering VQM and subjective Pearson linear correlation is
+good almost 0.938.VQM and its associated automatic
+calibration algorithms have been completely implemented
+in user-friendly software. This software is available to all
+interested parties via a no-cost license agreement. The fun-
+damental purpose of the General Model and the associated
+calibration routines is to track subjective video quality
+scores. This ability will be demonstrated by comparing
+General Model results with subjectively rated video clips.
+And the model predicts a good agreement with the user
+selection.
+Fan Zhang, Weisi Lin, Zhibo Chen, and King Ngi Ngan
+proposed a model called Additive Log-Logistic Model
+for Networked Video Quality Assessment. Additive log-
+logistic model (ALM) is proposed to formulate such a mul-
+tidimensional nonlinear problem. The log-logistic model
+has flexible monotonic or nonmonotonic partial derivatives
+and thus is suitable to model various uni-type impair-
+ments. The proposed ALM metric adds the distortions
+due to each type of impairment in a log-logistic trans-
+formed space of subjective opinions. The features can be
+evaluated and selected by classical statistical inference,
+and the model parameters can be easily estimated. In this
+model, it focuses on a problem of how to combine multiple
+attributes. This model uses a product function to combine
+quality factors in subjective opinion space followed by a
+multidimensional scaling based on distance like Euclidean
+distance. The aim is to formulate a new functional form
+to better capture the relationship of visual quality against
+the features extracted from videos. Its a completely no ref-
+erence model. A stepwise regression framework with regu-
+larities, the procedure of feature selection and parameter
+estimation. The modeling part considers a distortion due
+to impairment d. Considering it as a unitype impairment
+finds the quality attribute for each unitype impairments
+and further, it optimizes with hybrid impairments consid-
+ering three types of impairments, denoted by c, s, and f
+respectively (Compression, Slicing, Freezing). The above
+process can be formulated as: in the first step, investigate
+the quality function
+f c(dc|ds = df = 0)f orc,
+f s(ds|dc = df = 0)f ors, and
+f f (df |dc = ds = 0)f orf ;in the second step, we explore
+the total function
+f (d c , d s , d f ) under the following constraints:
+f (dc, ds, df |ds = df = 0) = f c.
+f (dc, ds, df |dc = df = 0) = f s.
+f (dc, ds, df |dc = ds = 0) = f f.
+In order to satisfy the equations above, we introduce a
+transform g and assume
+g(f (dc, ds, df )) = g(f c(dc)) + g(f s(ds)) + g(f f (df ))
+that is
+f (dc, ds, df ) = (g−1)(g(f c(dc))+g(f s(ds))+g(f f (df ))).
+Note that we havef c(0) = f s(0) = f f (0) = q best
+since a video always achieves the best quality when no
+impairment happens. Then, if g (q best ) = 0, Constraints
+(1) will be easily satisfied. For examplef (dc, ds, df |ds = df = 0)
+= (g − 1)(g(f c(dc)) + g(f s(0)) + g(f f (0)))
+= (g − 1)(g(f c(dc)) + g(qbest) + g(qbest)) − 1
+= g(g(f c(dc))) = f c(dc).
+Like logistic models, log-logistic models belong to the
+generalized linear model (GLM) [26]. With a link function.
+Then the model become logg (q) = b0 x + b1 z +
+loga, (x = logx, z = logz). After estimating for unitype
+impairments Additive Model for Multitype Impairment
+estimated Attribute functions fc, fs, and f f share the same
+form of unitype . It inspires us to introduce the transform
+g for the additive model.After providing a framework g (
+f (dc , ds , df )) = dc + ds + df . So we call it an additive
+log-logistic model (ALM). The transform g with parameter
+β determines a metric space, where the distortions are
+addable. Such linear metric space is not that explicit and
+can scarcely be obtained from a fixed transform of the
+subjective opinion space. This is because quality appraisal
+has dependency with context. No-reference ALM metric
+with the full-reference metrics PSNR (peak signal noise
+ratio) and VQM, so that it could be justified whether
+video features were fully exploited in the ALM metric.
+When comparing with PSNR and VQM, the ALM metric
+is more advantageous for the slicing and freezing than for
+the compression impairment. This implies that the pro-
+posed impaired block rate can better describe the visible
+artifacts and the freezing duration can better measure the
+annoyance due to visual pauses, compared with the video
+difference measurement in PSNR and VQM.
+The GLZ model models a single QoE parameter inde-
+pendently. It is therefore difficult to predict the overall
+QoE based on multiple QoE parameters. In such a case,
+multiple QoE models, for each QoE parameter will need to
+be developed. Then a new model for overall QoE predic-
+tion can be developed based on the outputs of each QoE
+model. The Acceptability based model verifies the user
+expectation on two binary data. That is it has to select
+acceptable or not acceptable, pleasant or not pleasant. The
+main problem of the model is depending on the binary
+value we canâĂŹt predict where the exact position of
+current user expectation. And further, we canâĂŹt predict
+how much is to improve. The General model does not
+consider a subjective analysis and without considering sub-
+jective analysis we canâĂŹt predict the user expectation
+without having a user analysis data. And in the General
+model, the spacial algorithm fails when it considers pure
+computer-generated images and pure black and white
+vertical straps. For such cases, iterative search algorithm
+has to implement. In the case of PVR if the video contains
+genuine black border the algorithm violate. The model
+considering both objective and subjective parameter is
+more acceptable. Additive Log-Logistic Model (ALM) is
+formulated by better capturing the relationship of visual
+quality against lossy compression and transmission error
+(slicing and freezing), and by taking into account the
+content features of content unpredictability and motion
+homogeneity to achieve better accuracy. But the same
+model concentrating on the network layer parameters and
+not on the application layer. The application layer is the
+one which directly in contact with the users and the user
+expectation parameters will more reflect on application
+layer parameters. In this paper, we show a novel process
+to predict the user expectation by considering both sub-
+jective and objective parameters and a regression models
+to select the parameters and find the user expectation.
